@@ -339,8 +339,8 @@ function buildChapter(ch, zoneId) {
     if (wayText) {
       row.querySelector('.quest-pin-btn').addEventListener('click', e => {
         e.stopPropagation();
+        const btn = e.currentTarget;
         navigator.clipboard.writeText(wayText).then(() => {
-          const btn = e.currentTarget;
           btn.textContent = 'Copied!';
           btn.classList.add('copied');
           setTimeout(() => { btn.textContent = '📍 /way'; btn.classList.remove('copied'); }, 1800);
@@ -351,8 +351,8 @@ function buildChapter(ch, zoneId) {
     if (macroText) {
       row.querySelector('.quest-run-btn').addEventListener('click', e => {
         e.stopPropagation();
+        const btn = e.currentTarget;
         navigator.clipboard.writeText(macroText).then(() => {
-          const btn = e.currentTarget;
           btn.textContent = 'Copied!';
           btn.classList.add('copied');
           setTimeout(() => { btn.textContent = 'copy /run'; btn.classList.remove('copied'); }, 1800);
