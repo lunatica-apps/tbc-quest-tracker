@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TBC Quest Tracker — Outland Journey</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<div class="shell">
+
+  <header>
+    <div class="header-eyebrow">World of Warcraft · The Burning Crusade · Retail 2026</div>
+    <h1>Outland Quest Tracker</h1>
+    <div class="header-sub">Lore-essential quests · Progress saves automatically</div>
+  </header>
+
+  <div class="toolbar">
+    <div class="progress-bar-wrap">
+      <div class="progress-bar-fill" id="global-bar" style="width:0%"></div>
+    </div>
+    <span class="progress-label" id="global-label"><strong>0</strong> / 0</span>
+    <button class="btn btn-save" id="btn-export">Export JSON</button>
+    <label class="btn btn-load" for="file-import" style="cursor:pointer">Import JSON</label>
+    <input type="file" id="file-import" accept=".json" style="display:none">
+    <button class="btn btn-reset" id="btn-reset">Reset</button>
+  </div>
+
+  <div class="faction-row">
+    <span class="faction-label">Faction</span>
+    <div class="faction-toggle">
+      <button class="faction-opt fa-alliance" id="fa-alliance" data-faction="alliance">⚔ Alliance</button>
+      <button class="faction-opt fa-horde"    id="fa-horde"    data-faction="horde">🔴 Horde</button>
+    </div>
+    <span style="font-size:10px;color:var(--muted);font-style:italic">Quests for the other faction are hidden</span>
+  </div>
+
+  <div class="tabs-bar" id="tabs-bar"><!-- tabs injected by JS --></div>
+
+</div><!-- /.shell -->
+
+<div id="zones-container"><!-- zone panels injected by JS --></div>
+
+<div class="toast" id="toast"></div>
+
+<!-- Load order matters: data → state → render → app -->
+<script src="data/hellfire.js"></script>
+<script src="js/state.js"></script>
+<script src="js/render.js"></script>
+<script src="js/app.js"></script>
+
+</body>
+</html>
