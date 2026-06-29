@@ -112,7 +112,7 @@ function applyFactionUI() {
 
 // ── filter ────────────────────────────────────────────────────────────────────
 
-function applyFilter(zoneId) {
+function applyFilter(zoneId, autoOpenFirst = false) {
   const f     = state.filters[zoneId] || 'all';
   const panel = document.getElementById('panel-' + zoneId);
   if (!panel) return;
@@ -132,12 +132,21 @@ function applyFilter(zoneId) {
     row.classList.toggle('hidden-filter', !show);
   });
 
-  panel.querySelectorAll('.chapter').forEach(chEl => {
+  // Pass 1 — mark empty chapters (no visible rows after filter + faction).
+  const chapters = [...panel.querySelectorAll('.chapter')];
+  chapters.forEach(chEl => {
     const hasVisible = [...chEl.querySelectorAll('.quest-row')].some(
       r => !r.classList.contains('hidden-filter') && !r.classList.contains('hidden-faction')
     );
     chEl.classList.toggle('chapter-empty', !hasVisible);
   });
+
+  // Pass 2 — when called from a filter button click, collapse everything and
+  // open only the first chapter that has visible rows.
+  if (autoOpenFirst) {
+    const visible = chapters.filter(ch => !ch.classList.contains('chapter-empty'));
+    visible.forEach((ch, i) => ch.classList.toggle('collapsed', i !== 0));
+  }
 }
 
 // ── tabs ──────────────────────────────────────────────────────────────────────
@@ -224,7 +233,7 @@ function renderActiveZone() {
       state.filters[this.dataset.zone] = this.dataset.filter;
       shell.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
       this.classList.add('active');
-      applyFilter(zone.id);
+      applyFilter(zone.id, true);
     });
   });
 
