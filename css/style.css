@@ -68,12 +68,9 @@ h1 {
   display: flex; align-items: center; gap: 10px;
   padding: 10px 0; border-bottom: 1px solid var(--border);
 }
-.toolbar-progress {
-  display: flex; align-items: center; gap: 10px; flex: 1; min-width: 0;
-}
+.toolbar-bar { flex: 1; min-width: 80px; }
 .toolbar-btns { display: flex; align-items: center; gap: 8px; flex-shrink: 0; }
 .progress-bar-wrap {
-  flex: 1; min-width: 80px;
   background: rgba(58,42,16,0.5); border-radius: 3px; height: 5px;
   overflow: hidden; border: 1px solid var(--border);
 }
@@ -398,14 +395,20 @@ h1 {
 
 /* ── MOBILE ── */
 @media (max-width: 640px) {
-  .shell > header { padding: 16px 0 10px; }
-  .header-eyebrow { font-size: 9px; letter-spacing: 0.15em; }
+  /* Header */
+  .shell > header { padding: 14px 0 10px; }
+  .header-eyebrow { display: none; }
+  h1 { font-size: clamp(20px, 6vw, 28px); }
   .header-sub { font-size: 10px; }
 
-  .toolbar { flex-wrap: wrap; gap: 8px; }
-  .toolbar-progress { flex-basis: 100%; }
+  /* Toolbar — three stacked rows */
+  .toolbar { flex-wrap: wrap; gap: 6px; padding: 8px 0; }
+  .toolbar-bar { flex-basis: 100%; }
+  .progress-label { flex-basis: 100%; text-align: center; }
   .toolbar-btns { flex-basis: 100%; justify-content: center; }
 
-  .faction-row { flex-wrap: wrap; gap: 8px; }
+  /* Faction row — buttons only, centered */
+  .faction-label { display: none; }
+  .faction-row { justify-content: center; }
   .faction-row > span:last-child { display: none; }
 }
