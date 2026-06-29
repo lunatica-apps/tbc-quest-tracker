@@ -62,8 +62,6 @@ function toggleQuest(qId, zoneId, chId) {
   const row = document.querySelector(`.quest-row[data-id="${qId}"]`);
   if (row) row.classList.toggle('done', !!state.completed[qId]);
 
-  state.lastChapterId = chId;
-
   refreshLocks(zoneId);
   updateChapterCount(chId);
   updateZoneProgress(zoneId);
@@ -252,7 +250,7 @@ function buildChapter(ch, zoneId) {
   ch.quests.forEach(q => { depthMap[q.id] = q.prev ? 1 : 0; });
 
   const chEl = document.createElement('div');
-  chEl.className  = 'chapter' + (ch.id === state.lastChapterId ? '' : ' collapsed');
+  chEl.className  = 'chapter' + (state.openChapterIds.has(ch.id) ? '' : ' collapsed');
   chEl.dataset.id = ch.id;
 
   const header = document.createElement('div');
@@ -264,10 +262,9 @@ function buildChapter(ch, zoneId) {
   `;
   header.addEventListener('click', () => {
     const nowCollapsed = chEl.classList.toggle('collapsed');
-    if (!nowCollapsed) {
-      state.lastChapterId = ch.id;
-      saveState();
-    }
+    if (nowCollapsed) state.openChapterIds.delete(ch.id);
+    else state.openChapterIds.add(ch.id);
+    saveState();
   });
 
   const body = document.createElement('div');
