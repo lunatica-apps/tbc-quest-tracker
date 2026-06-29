@@ -333,7 +333,7 @@ function buildChapter(ch, zoneId) {
             ${macroText ? `<button class="quest-macro-btn quest-run-btn" title="Copy /run macro — paste in WoW chat to check if completed">copy /run</button>` : ''}
           </div>
         </div>
-        <div class="quest-npc"><em>${npcName}</em>${npcLoc ? ` — ${npcLoc}` : ''}</div>
+        <div class="quest-npc">${npcName ? '📍 ' : ''}<em>${npcName}</em>${npcLoc ? ` — ${npcLoc}` : ''}</div>
         ${tagHtml ? `<div class="quest-tags">${tagHtml}</div>` : ''}
         ${q.lore  ? `<div class="quest-lore">${q.lore}</div>`   : ''}
       </div>

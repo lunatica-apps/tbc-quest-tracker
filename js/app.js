@@ -37,10 +37,26 @@ document.getElementById('file-import').addEventListener('change', function (e) {
   this.value = '';
 });
 
-// ── reset ─────────────────────────────────────────────────────────────────────
+// ── reset modal ───────────────────────────────────────────────────────────────
+
+const resetModal  = document.getElementById('reset-modal');
+const modalCancel = document.getElementById('modal-cancel');
+const modalConfirm = document.getElementById('modal-confirm');
 
 document.getElementById('btn-reset').addEventListener('click', () => {
-  if (!confirm('Reset all quest progress? This cannot be undone.')) return;
+  resetModal.hidden = false;
+});
+
+modalCancel.addEventListener('click', () => {
+  resetModal.hidden = true;
+});
+
+resetModal.addEventListener('click', e => {
+  if (e.target === resetModal) resetModal.hidden = true;
+});
+
+modalConfirm.addEventListener('click', () => {
+  resetModal.hidden = true;
   state.completed = {};
   saveState();
   ZONES.forEach(z => {

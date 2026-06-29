@@ -42,6 +42,18 @@
 
 <div id="zones-container"><!-- zone panels injected by JS --></div>
 
+<div class="modal-overlay" id="reset-modal" hidden>
+  <div class="modal">
+    <div class="modal-icon">⚠</div>
+    <h2 class="modal-title">Reset All Progress?</h2>
+    <p class="modal-body">Every completed quest will be permanently erased.<br>This cannot be undone.</p>
+    <div class="modal-actions">
+      <button class="btn" id="modal-cancel">Cancel</button>
+      <button class="btn btn-reset modal-confirm-btn" id="modal-confirm">Yes, Reset Everything</button>
+    </div>
+  </div>
+</div>
+
 <div class="toast" id="toast"></div>
 
 <!-- Load order matters: data → state → render → app -->
