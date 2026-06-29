@@ -17,14 +17,17 @@
   </header>
 
   <div class="toolbar">
-    <div class="progress-bar-wrap">
-      <div class="progress-bar-fill" id="global-bar" style="width:0%"></div>
+    <div class="toolbar-progress">
+      <div class="progress-bar-wrap">
+        <div class="progress-bar-fill" id="global-bar" style="width:0%"></div>
+      </div>
+      <span class="progress-label" id="global-label"><strong>0</strong> / 0</span>
     </div>
-    <span class="progress-label" id="global-label"><strong>0</strong> / 0</span>
-    <button class="btn btn-save" id="btn-export">Export JSON</button>
-    <label class="btn btn-load" for="file-import" style="cursor:pointer">Import JSON</label>
-    <input type="file" id="file-import" accept=".json" style="display:none">
-    <button class="btn btn-reset" id="btn-reset">Reset</button>
+    <div class="toolbar-btns">
+      <button class="btn btn-data" id="btn-data">⚙ Data</button>
+      <input type="file" id="file-import" accept=".json" style="display:none">
+      <button class="btn btn-reset" id="btn-reset">Reset</button>
+    </div>
   </div>
 
   <div class="faction-row">
@@ -41,6 +44,18 @@
 </div><!-- /.shell -->
 
 <div id="zones-container"><!-- zone panels injected by JS --></div>
+
+<div class="modal-overlay" id="data-modal" hidden>
+  <div class="modal">
+    <button class="modal-close" id="data-modal-close">✕</button>
+    <h2 class="modal-title modal-title-gold">Backup &amp; Restore</h2>
+    <p class="modal-body">Export saves a backup file. Import restores from a backup and overwrites current progress.</p>
+    <div class="modal-actions">
+      <button class="btn btn-save" id="btn-export">Export backup</button>
+      <label class="btn btn-load" for="file-import" style="cursor:pointer">Import backup</label>
+    </div>
+  </div>
+</div>
 
 <div class="modal-overlay" id="reset-modal" hidden>
   <div class="modal">

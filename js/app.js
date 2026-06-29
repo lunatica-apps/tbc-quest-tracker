@@ -37,6 +37,19 @@ document.getElementById('file-import').addEventListener('change', function (e) {
   this.value = '';
 });
 
+// ── data modal ────────────────────────────────────────────────────────────────
+
+const dataModal = document.getElementById('data-modal');
+document.getElementById('btn-data').addEventListener('click', () => {
+  dataModal.hidden = false;
+});
+document.getElementById('data-modal-close').addEventListener('click', () => {
+  dataModal.hidden = true;
+});
+dataModal.addEventListener('click', e => {
+  if (e.target === dataModal) dataModal.hidden = true;
+});
+
 // ── reset modal ───────────────────────────────────────────────────────────────
 
 const resetModal  = document.getElementById('reset-modal');

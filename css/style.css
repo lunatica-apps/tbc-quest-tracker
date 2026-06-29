@@ -66,10 +66,14 @@ h1 {
 /* ── TOOLBAR ── */
 .toolbar {
   display: flex; align-items: center; gap: 10px;
-  padding: 10px 0; border-bottom: 1px solid var(--border); flex-wrap: wrap;
+  padding: 10px 0; border-bottom: 1px solid var(--border);
 }
+.toolbar-progress {
+  display: flex; align-items: center; gap: 10px; flex: 1; min-width: 0;
+}
+.toolbar-btns { display: flex; align-items: center; gap: 8px; flex-shrink: 0; }
 .progress-bar-wrap {
-  flex: 1; min-width: 100px;
+  flex: 1; min-width: 80px;
   background: rgba(58,42,16,0.5); border-radius: 3px; height: 5px;
   overflow: hidden; border: 1px solid var(--border);
 }
@@ -95,6 +99,11 @@ h1 {
 .btn-load:hover { border-color: var(--gold); background: rgba(200,146,42,0.10); }
 .btn-reset { border-color: var(--fire-dim); color: #c06050; }
 .btn-reset:hover { border-color: var(--fire); background: rgba(232,100,10,0.10); color: var(--fire); }
+.btn-data {
+  border-color: rgba(58,42,16,0.7); color: var(--muted);
+  font-size: 10px; padding: 4px 10px;
+}
+.btn-data:hover { border-color: var(--border); color: var(--text); background: rgba(255,255,255,0.03); }
 
 /* ── TABS ── */
 .tabs-bar {
@@ -344,6 +353,7 @@ h1 {
 }
 .modal-overlay[hidden] { display: none; }
 .modal {
+  position: relative;
   background: var(--card);
   border: 1px solid var(--fire-dim);
   border-radius: 6px;
@@ -352,6 +362,15 @@ h1 {
   text-align: center;
   box-shadow: 0 8px 40px rgba(0,0,0,0.6);
 }
+.modal-close {
+  position: absolute; top: 12px; right: 14px;
+  background: none; border: none; color: var(--muted);
+  font-size: 13px; cursor: pointer; line-height: 1;
+  transition: color 0.15s; padding: 2px 4px;
+}
+.modal-close:hover { color: var(--text); }
+.modal-title-gold { color: var(--gold) !important; }
+#data-modal .modal { border-color: var(--gold-dim); }
 .modal-icon { font-size: 32px; margin-bottom: 12px; }
 .modal-title {
   font-family: 'Cinzel', serif;
@@ -376,3 +395,17 @@ h1 {
   transition: opacity 0.2s, transform 0.2s; pointer-events: none;
 }
 .toast.show { opacity: 1; transform: translateY(0); }
+
+/* ── MOBILE ── */
+@media (max-width: 640px) {
+  .shell > header { padding: 16px 0 10px; }
+  .header-eyebrow { font-size: 9px; letter-spacing: 0.15em; }
+  .header-sub { font-size: 10px; }
+
+  .toolbar { flex-wrap: wrap; gap: 8px; }
+  .toolbar-progress { flex-basis: 100%; }
+  .toolbar-btns { flex-basis: 100%; justify-content: center; }
+
+  .faction-row { flex-wrap: wrap; gap: 8px; }
+  .faction-row > span:last-child { display: none; }
+}
