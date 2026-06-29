@@ -2,11 +2,12 @@
 
 const TAG_LABELS = {
   campaign: 'Campaign', keylore: 'Key Lore', lore: 'Side Lore', side: 'Side Quest',
+  breadcrumb: 'Breadcrumb',
   dungeon: 'Dungeon', horde: 'Horde Only', alliance: 'Alliance Only',
   neutral: 'Both Factions', group: 'Group',
 };
 
-const PRIORITY_TAGS  = ['campaign', 'keylore', 'lore', 'side', 'dungeon'];
+const PRIORITY_TAGS  = ['campaign', 'keylore', 'lore', 'side', 'breadcrumb', 'dungeon'];
 const SECONDARY_TAGS = ['alliance', 'horde', 'neutral', 'group'];
 
 // ── helpers ──────────────────────────────────────────────────────────────────

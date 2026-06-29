@@ -323,7 +323,8 @@ h1 {
 .tag-campaign { background: rgba(232,100,10,0.18); color: #f07030;        border: 1px solid rgba(232,100,10,0.5); }
 .tag-keylore  { background: rgba(200,146,42,0.16); color: var(--gold);    border: 1px solid var(--gold-dim); }
 .tag-lore     { background: rgba(100,160,220,0.12);color: #7aacdc;        border: 1px solid rgba(100,160,220,0.3); }
-.tag-side     { background: rgba(120,120,120,0.10);color: #909090;        border: 1px solid #404040; }
+.tag-side       { background: rgba(120,120,120,0.10);color: #909090;        border: 1px solid #404040; }
+.tag-breadcrumb { background: rgba(0,180,180,0.10);  color: #40c0c0;        border: 1px solid rgba(0,180,180,0.3); }
 /* ── Descriptor tags ── */
 .tag-dungeon  { background: rgba(155,89,182,0.14); color: var(--dungeon); border: 1px solid var(--dungeon-dim); }
 .tag-secondary { opacity: 0.45; font-size: 8px; }
