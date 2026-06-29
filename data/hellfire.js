@@ -128,22 +128,35 @@ const ZONES = [
        coordA:"Hellfire Peninsula:56:66", coordH:"Hellfire Peninsula:56:47",
        lore:"You deliver the Dark Missive to Danath or Nazgrel. The intelligence is damning: Magtheridon's blood is being used inside Hellfire Citadel to mass-produce Fel Orcs. The only way to stop the endless stream of corrupted soldiers is to go inside. This quest is the bridge directly into Hellfire Ramparts.",
        tags:["campaign","keylore"] },
-     { id:"hp_d1",  wowheadId:10162, name:"⚔ Hellfire Ramparts — Weaken the Ramparts",
-       npcA:"Force Commander Danath Trollbane", locA:"Honor Hold, main keep (pick up before entering)",
-       npcH:"Nazgrel", locH:"Thrallmar, main hall (pick up before entering)",
+     { id:"hp_inv_citadel", wowheadId:29542, name:"Invading the Citadel",
+       npcA:"Sergeant Altumus", locA:"East Supply Caravan, east of Honor Hold",
+       npcH:"Nazgrel", locH:"Thrallmar, main hall",
+       coordA:"Hellfire Peninsula:64:51", coordH:"Hellfire Peninsula:56:47",
+       lore:"The retail breadcrumb into Hellfire Ramparts. This quest replaced the Classic 'Weaken the Ramparts' chain entirely. Altumus or Nazgrel brief you on a covert operation to invade the Citadel and send you to speak with a scout waiting at the Ramparts entrance. No prerequisites required — available as soon as you arrive at your faction hub.",
+       tags:["campaign","dungeon"] },
+    ]
+   },
+   {
+    id: "ch_citadel",
+    title: "Chapter 4 — Hellfire Citadel Dungeons & Magtheridon's Lair",
+    quests: [
+     { id:"hp_shattered", wowheadId:29688, name:"Advancing the Campaign (Shattered Halls)",
+       npcA:"Shadow Hunter Ty'jin", locA:"Honor Hold",
+       npcH:"Shadow Hunter Ty'jin", locH:"Thrallmar",
        coordA:"Hellfire Peninsula:56:65", coordH:"Hellfire Peninsula:56:47",
-       lore:"[DUNGEON] The outer wall of Hellfire Citadel. The Dark Missive led you here — you are now assaulting Magtheridon's fortress directly. Three bosses guard the ramparts: Watchkeeper Gargolmar commands the Fel Orc sentries; Omor the Unscarred is a demon overseer; Vazruden the Herald is Magtheridon's personal envoy and the one carrying the Ominous Letter. Clear all three and loot the letter before leaving.",
-       tags:["campaign","keylore","dungeon"] },
-     { id:"hp_d1b", wowheadId:10439, name:"⚔ Dark Tidings (Drop: Ominous Letter from Vazruden)",
-       npc:"Drop from Vazruden the Herald — every party member must loot", loc:"Hellfire Ramparts, final boss room",
-       coord:"Hellfire Peninsula:47:53",
-       lore:"[DUNGEON — CRITICAL] Loot the Ominous Letter from Vazruden's body — every party member must pick it up individually before leaving. The letter is Legion correspondence confirming that the Blood Furnace inside the Citadel is where Magtheridon's blood is being processed into Fel Orcs. This item unlocks the entire Blood Furnace quest chain. Do not skip this.",
+       lore:"Retail breadcrumb into the Shattered Halls — the third and deepest wing of Hellfire Citadel. Ty'jin sends you to speak with Stone Guard Stok'ton inside. This is a level 20-30 dungeon in retail scaling, only attempt when well-geared. Kargath Bladefist is the final boss.",
+       tags:["campaign","dungeon"] },
+     { id:"hp_magtheridon", wowheadId:11002, name:"The Fall of Magtheridon (Raid)",
+       npcA:"Magtheridon's Head — drops from Magtheridon in Magtheridon's Lair", locA:"Magtheridon's Lair, Hellfire Citadel",
+       npcH:"Magtheridon's Head — drops from Magtheridon in Magtheridon's Lair", locH:"Magtheridon's Lair, Hellfire Citadel",
+       coordA:"Hellfire Peninsula:47:56", coordH:"Hellfire Peninsula:47:56",
+       lore:"The raid quest that closes the entire Hellfire Peninsula story. Magtheridon is the pit lord whose blood has been used to create the Fel Orc army throughout the zone. Defeating him in the 25-player raid drops his head — return it to Danath (A) or Nazgrel (H) for a powerful ring reward and a zone-wide buff. This is the narrative conclusion of everything you've done in Hellfire Peninsula.",
        tags:["campaign","keylore","dungeon"] },
     ]
    },
    {
     id: "ch_felorc",
-    title: "Chapter 4 — The Fel Orc Threat & Bleeding Hollow Clan",
+    title: "Chapter 5 — The Fel Orc Threat & Bleeding Hollow Clan",
     quests: [
      { id:"hp30a", wowheadId:10160, name:"Know Your Enemy",
        npc:"Force Commander Danath Trollbane", loc:"Honor Hold, main keep",
@@ -195,23 +208,11 @@ const ZONES = [
        npc:"Nazgrel", loc:"Thrallmar",
        lore:"The Horde investigation chain ends here. Nazgrel has heard the scryer's findings and orders you to the Citadel's base. You now have everything you need — the mission is to enter the Blood Furnace and shut it down from the inside.",
        tags:["campaign","horde"] },
-     { id:"hp_d2",  wowheadId:10439, prev:"hp_d1b", name:"⚔ The Blood Furnace — Heart of Rage",
-       npcA:"Force Commander Danath Trollbane", locA:"Honor Hold, main keep (after Dark Tidings)",
-       npcH:"Nazgrel", locH:"Thrallmar, main hall (after Dark Tidings)",
-       coordA:"Hellfire Peninsula:56:65", coordH:"Hellfire Peninsula:56:47",
-       lore:"[DUNGEON] The heart of the Fel Orc supply chain. Three bosses guard the furnace levels: The Maker is a twisted Eredar scientist who oversees the transformation process; Broggok commands the incubation chambers where orcs are held mid-transformation; Keli'dan the Breaker guards the deepest level where Magtheridon's blood is stored and distributed. Completing this dungeon is the payoff for both the Alliance and Horde investigation chains.",
-       tags:["campaign","keylore","dungeon"] },
-     { id:"hp_d2b", wowheadId:10440, prev:"hp_d2", name:"⚔ The Blood is Life — Blood Furnace",
-       npcA:"Force Commander Danath Trollbane", locA:"Honor Hold, main keep (turn-in after dungeon)",
-       npcH:"Centurion Caza'rez", locH:"Thrallmar (turn-in after dungeon)",
-       coordA:"Hellfire Peninsula:56:65", coordH:"Hellfire Peninsula:56:47",
-       lore:"[DUNGEON] A secondary objective inside the Blood Furnace — collect blood vials from the Fel Orcs being processed here. The samples confirm beyond all doubt that Magtheridon's blood, not demon pacts or demonic weapons, is physically transforming orcs. This evidence is the final justification for assaulting Magtheridon himself in his lair raid beneath the Citadel.",
-       tags:["campaign","dungeon"] },
     ]
    },
    {
     id: "ch_expedition",
-    title: "Chapter 5 — The Lost Expedition & Local War",
+    title: "Chapter 6 — The Lost Expedition & Local War",
     quests: [
      { id:"hp40a",  name:"Waste Not, Want Not",
        npc:"Dumphry — Grand Master Blacksmith", loc:"Honor Hold Mine, west of Honor Hold",
@@ -264,7 +265,7 @@ const ZONES = [
    },
    {
     id: "ch_draenei",
-    title: "Chapter 6 — The Draenei & the Path of Glory",
+    title: "Chapter 7 — The Draenei & the Path of Glory",
     quests: [
      { id:"hp50",  name:"The Path of Glory",
        npc:"Warp-Scryer Kryv", loc:"Honor Hold inn, 2nd floor",
@@ -312,7 +313,7 @@ const ZONES = [
    },
    {
     id: "ch_broken",
-    title: "Chapter 7 — The Broken Draenei & Ruins of Sha'naar",
+    title: "Chapter 8 — The Broken Draenei & Ruins of Sha'naar",
     quests: [
      { id:"hp65",  name:"Naladu",
        npc:"One of the Dreghood Broken in the huts", loc:"Ruins of Sha'naar, western Hellfire",
@@ -339,7 +340,7 @@ const ZONES = [
    },
    {
     id: "ch_maghar",
-    title: "Chapter 8 — The Mag'har (Horde) / Arakkoa & Dustquill (Alliance)",
+    title: "Chapter 9 — The Mag'har (Horde) / Arakkoa & Dustquill (Alliance)",
     quests: [
      { id:"hp70h", name:"The Assassin",
        npc:"Gorkan Bloodfist", loc:"Spinebreaker Post, central Hellfire",
@@ -377,7 +378,7 @@ const ZONES = [
    },
    {
     id: "ch_cenarion",
-    title: "Chapter 9 — Cenarion Post & Departure to Zangarmarsh",
+    title: "Chapter 10 — Cenarion Post & Departure to Zangarmarsh",
     quests: [
      { id:"hp80",  name:"Helping the Cenarion Post",
        npcA:"Amaan the Wise", locA:"Temple of Telhamat inn",
